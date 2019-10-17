@@ -31,7 +31,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/", "/home","/home/search-category","/home/search-s").permitAll() // Cho phép tất cả mọi người truy cập vào 2 địa chỉ này
-                .anyRequest().authenticated() // Tất cả các request khác đều cần phải xác thực mới được truy cập
+                .antMatchers("/blog**","/category**").hasRole("USER")
                 .and()
                 .formLogin() // Cho phép người dùng xác thực bằng form login
                 .defaultSuccessUrl("/hello")
