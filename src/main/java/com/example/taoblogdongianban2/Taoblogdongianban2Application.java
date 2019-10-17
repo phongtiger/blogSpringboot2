@@ -57,27 +57,5 @@ public class Taoblogdongianban2Application {
             Formatter categoryFormatter = new CategoryFormatter(categoryService);
             registry.addFormatter(categoryFormatter);
         }
-
-        @Override
-        public void addInterceptors(InterceptorRegistry registry) {
-            LocaleChangeInterceptor interceptor = new LocaleChangeInterceptor();
-            interceptor.setParamName("lang");
-            registry.addInterceptor(interceptor);
-        }
-
-        @Bean
-        public MessageSource messageSource() {
-            ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
-            messageSource.setBasename("message");
-            messageSource.setDefaultEncoding("UTF-8");
-            return messageSource;
-        }
-
-        @Bean
-        public LocaleResolver localeResolver() {
-            SessionLocaleResolver localeResolver = new SessionLocaleResolver();
-            localeResolver.setDefaultLocale(new Locale("en"));
-            return localeResolver;
-        }
     }
 }
