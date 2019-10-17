@@ -4,10 +4,10 @@
     <title>Blog</title>
 </head>
 <body>
-<h1>Welcomemyblog</h1>
-<p><a href="/login"><u th:text="#{home.Login}"></u></a></p>
+<h1>Welcome to my blog</h1>
+<p><a href="/login">Login</a></p>
 
-<form>
+<form th:action="@{/home/search-s}">
     Search
     <input name="s" type="text"/>
     <button type="submit">Search</button>
@@ -24,12 +24,14 @@
         <th>Title</th>
         <th>Content</th>
         <th>Category</th>
+        <th>Image</th>
     </tr>
     <th:block th:each="blog : ${blogs}">
         <tr>
             <td th:text="${blog.tittle}"></td>
             <td th:text="${blog.content}"></td>
             <td th:text="${blog.category?.name}"></td>
+            <td><img th:src="${blog.image}" width="250px" height="250px"></td>
         </tr>
     </th:block>
 </table>
@@ -39,6 +41,5 @@
     <a th:href="@{'/blogs'(page=${blogs.number + 1})}" th:if="${blogs.hasNext()}">Next</a>
 </div>
 <br/>
-Language: <a href="?lang=en">English</a> | <a href="?lang=vi">VietNam</a>
 </body>
 </html>

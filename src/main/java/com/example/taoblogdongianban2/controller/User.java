@@ -22,7 +22,7 @@ public class User {
     @Autowired
     private CategoryService categoryService;
 
-    @GetMapping(value = {"/", "/home"})
+    @GetMapping(value = {"/home/search-s", "/home","/"})
     public ModelAndView listBlogs(@RequestParam("s") Optional<String> s, Pageable pageable){
         Page<Blog> blogs;
         if(s.isPresent()){

@@ -11,6 +11,7 @@ public class Blog {
     private Long id;
     private String tittle;
     private String content;
+    private String image;
 
     @ManyToOne
     @JoinColumn(name = "category_id")
@@ -26,6 +27,12 @@ public class Blog {
 
     public Blog() {}
 
+    public Blog(String tittle, String content,String image) {
+        this.tittle = tittle;
+        this.content = content;
+        this.image = image;
+    }
+
     public Blog(String tittle, String content) {
         this.tittle = tittle;
         this.content = content;
@@ -33,7 +40,7 @@ public class Blog {
 
     @Override
     public String toString() {
-        return String.format("Blog[id=%d, firstName='%s', lastName='%s']", id, tittle, content);
+        return String.format("Blog[id=%d, firstName='%s', lastName='%s',image='%s']", id, tittle, content, image);
     }
 
     public Long getId() {
@@ -58,6 +65,14 @@ public class Blog {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }
 
