@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Hello</title>
+</head>
+<body>
+<h1>Chao Admin</h1>
+<a href="/blog/">Click here to creat,edit or delete blog </a><br/><br/>
+
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Sign Out"/>
+</form>
+
+</body>
+</html>
